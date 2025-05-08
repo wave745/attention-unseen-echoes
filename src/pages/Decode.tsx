@@ -55,7 +55,7 @@ const Decode = () => {
       <div className="fixed inset-0 z-0 opacity-15 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-cyber-black"></div>
         <img 
-          src="/lovable-uploads/ac71167c-6625-4daa-8904-45e6caec9bb7.png" 
+          src="/assets/attention-overlay.png" 
           alt="Person wearing VR headset with glitched ATTENTION overlay" 
           className="w-full h-full object-cover object-center"
         />
