@@ -6,6 +6,7 @@ import TerminalText from "@/components/TerminalText";
 import GlitchText from "@/components/GlitchText";
 import LorePiece from "@/components/LorePiece";
 import AudioController from "@/components/AudioController";
+import { cn } from "@/lib/utils";
 
 const Decode = () => {
   const [accessLevel, setAccessLevel] = useState(0);
@@ -51,6 +52,15 @@ const Decode = () => {
       <AudioController />
       <GlitchOverlay intensity="medium" />
       
+      <div className="fixed inset-0 z-0 opacity-15 pointer-events-none">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-cyber-black"></div>
+        <img 
+          src="/lovable-uploads/b35ddf86-f34d-46ce-8a21-feed2b45e4f0.png" 
+          alt="VR user with ATTENTION text overlay" 
+          className="w-full h-full object-cover object-center"
+        />
+      </div>
+      
       <div className="container mx-auto px-4 py-20 relative z-10">
         <header className="mb-12 text-center">
           <GlitchText 
@@ -65,7 +75,10 @@ const Decode = () => {
           </div>
         </header>
         
-        <main className="max-w-4xl mx-auto">
+        <main className={cn(
+          "max-w-4xl mx-auto backdrop-blur-sm transition-all duration-500",
+          !showTerminalPrompt && "fade-in"
+        )}>
           {showTerminalPrompt ? (
             <div className="bg-cyber-dark bg-opacity-70 p-6 border border-cyber-purple border-opacity-40">
               <TerminalText 
@@ -94,6 +107,16 @@ const Decode = () => {
             </div>
           ) : (
             <div className="grid grid-cols-1 gap-6">
+              <div className="mb-8 p-4 bg-cyber-dark bg-opacity-70 border-l-4 border-cyber-blue">
+                <h3 className="font-mono text-lg font-bold text-cyber-light mb-3 flex items-center gap-2">
+                  <span className="text-xl">🔓</span>
+                  ACCESS LEVEL 1: DECLASSIFIED
+                </h3>
+                <div className="text-sm text-cyber-light opacity-80">
+                  The following documents have been retrieved from network fragments. They reveal patterns of control within the ATTENTION systems. Further decryption awaiting authorization.
+                </div>
+              </div>
+              
               {lorePieces.map((piece, index) => (
                 <LorePiece
                   key={index}

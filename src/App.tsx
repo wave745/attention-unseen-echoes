@@ -20,7 +20,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <div className="relative">
+        <div className="relative w-full min-h-screen overflow-hidden">
           <div className="noise"></div>
           <Routes>
             <Route path="/" element={<Index />} />
