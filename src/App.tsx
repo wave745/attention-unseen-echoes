@@ -10,7 +10,6 @@ import Decode from "./pages/Decode";
 import Submit from "./pages/Submit";
 import Observe from "./pages/Observe";
 import Order from "./pages/Order";
-import AudioController from "./components/AudioController";
 
 const queryClient = new QueryClient();
 
